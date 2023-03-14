@@ -9,6 +9,7 @@ class Phonebook {
 		~Phonebook();
 		Contact get_contact(int i);
 		void add_contact(Contact contact);
+		void show_contacts();
 	private:
 		Contact _contacts[8];
 		int		_index;

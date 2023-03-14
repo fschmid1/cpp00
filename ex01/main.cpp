@@ -31,6 +31,32 @@ void add(Phonebook *phone_book) {
 	phone_book->add_contact(Contact(first_name, last_name, nick_name, phone_number, darkest_secret));
 }
 
+void search(Phonebook *phone_book) {
+	phone_book->show_contacts();
+	std::cout << "Enter index of contact to show:\n";
+	std::string index;
+	std::getline(std::cin, index, '\n');
+	if (index.empty()) {
+		std::cout << "Index can't be empty\n";
+		return ;
+	}
+	if (std::isdigit(index[0]) == 0) {
+		std::cout << "Index must be a number\n";
+		return ;
+	}
+	int i = std::atoi(index.data());
+	if (i < 0 || i > 7) {
+		std::cout << "Index must be between 0 and 7\n";
+		return ;
+	}
+	Contact contact = phone_book->get_contact(i);
+	std::cout << "First name: " << contact.get_first_name() << std::endl;
+	std::cout << "Last name: " << contact.get_last_name() << std::endl;
+	std::cout << "Nick name: " << contact.get_nick_name() << std::endl;
+	std::cout << "Phone number: " << contact.get_phone_number() << std::endl;
+	std::cout << "Darkest secret: " << contact.get_darkest_secret() << std::endl;
+}
+
 int	main(void) {
 	Phonebook phone_book = Phonebook();
 
@@ -41,6 +67,8 @@ int	main(void) {
 
 		if (std::strcmp("ADD", command.data()) == 0) {
 			add(&phone_book);
+		} else if (std::strcmp("SEARCH", command.data()) == 0) {
+			search(&phone_book);
 		} else if (std::strcmp("EXIT", command.data()) == 0) {
 			break ;
 		}
