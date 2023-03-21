@@ -44,7 +44,7 @@ void search(Phonebook *phone_book) {
 		std::cout << "Index must be a number\n";
 		return ;
 	}
-	int i = std::atoi(index.data());
+	int i = index[0] - '0';
 	if (i < 0 || i > 7) {
 		std::cout << "Index must be between 0 and 7\n";
 		return ;
