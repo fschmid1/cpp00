@@ -11,8 +11,6 @@ int main(int argc, char *argv[]) {
 		std::string arg = argv[i];
 		for (int j = 0; j < (int) arg.length(); j++)
 			std::cout << (char) std::toupper(arg[j]);
-		if (i < argc - 1)
-			std::cout << " ";
 	}
 	std::cout << "\n";
 	return (0);
