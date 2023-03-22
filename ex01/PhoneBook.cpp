@@ -27,7 +27,7 @@ void	Phonebook::show_contacts() {
 	std::string last_name;
 	std::string nick_name;
 
-	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First name" << "|" << std::setw(10) << "Last name" << "|" << std::setw(10) << "Nick name" << std::endl;
+	std::cout << std::right << std::setw(10) << "Index" << "|" << std::right << std::setw(10) << "First name" << "|" << std::right << std::setw(10) << "Last name" << "|" << std::right << std::setw(10) << "Nick name" << std::endl;
 	for (int i = 0; i < 8; i++) {
 		first_name = _contacts[i].get_first_name();
 		last_name = _contacts[i].get_last_name();
@@ -44,7 +44,7 @@ void	Phonebook::show_contacts() {
 			nick_name.resize(9);
 			nick_name.append(".");
 		}
-		std::cout << std::setw(10) << i << "|" << std::setw(10) << first_name << "|" << std::setw(10) << last_name << "|" << std::setw(10) << nick_name << std::endl;
+		std::cout << std::right << std::setw(10) << i << "|" << std::right << std::setw(10) << first_name << "|" << std::right << std::setw(10) << last_name << "|" << std::right << std::setw(10) << nick_name << std::endl;
 	}
 	std::cout << std::endl;
 }
